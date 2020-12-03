@@ -11,16 +11,18 @@ import java.util.Map;
 @Controller
 public class HelloController {
     // rootからのURLをマッピングして指定のhtml名を返す
-    @RequestMapping("/hello0")
+    @RequestMapping("/group0/hello0")
     public String hello0(){
-        return "hello0.html";
+        //フォルダを作成した場合は、static/templateからの相対パス.
+        //先頭に"/"は不要
+        return "group0/hello0.html";
     }
 
     @RequestMapping(value = "/hello1", method = RequestMethod.GET)
     public String hello1(Model iModel){
         iModel.addAttribute("selectItems", getItems());
         iModel.addAttribute( "initKey", "key_B" );
-        return "hello1.html";
+        return "group1/group1-1/hello1.html";
     }
 
     /**
